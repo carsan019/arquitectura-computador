@@ -1,35 +1,73 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
 
 <head>
 <meta charset="UTF-8">
-<title>Arquitectura del Computador</title>
+<title>Guía de Estudio - Arquitectura del Computador</title>
 
 <style>
+
 body{
-font-family: Arial;
+font-family:Arial;
 background:#0f172a;
 color:white;
-text-align:center;
-padding:40px;
+margin:0;
 }
 
-h1{
-color:#38bdf8;
+header{
+background:#020617;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:#020617;
+padding:10px;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:#22c55e;
+margin-right:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+section{
+padding:30px;
+max-width:1000px;
+margin:auto;
 }
 
 .card{
 background:#1e293b;
 padding:20px;
-margin:20px auto;
-width:300px;
+margin-bottom:20px;
 border-radius:10px;
 }
 
-a{
+h1,h2,h3{
+color:#38bdf8;
+}
+
+code{
+background:#020617;
+padding:4px;
+border-radius:4px;
 color:#22c55e;
-font-size:18px;
-text-decoration:none;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+td,th{
+border:1px solid #334155;
+padding:8px;
 }
 
 </style>
@@ -38,17 +76,300 @@ text-decoration:none;
 
 <body>
 
+<header>
+
 <h1>Arquitectura del Computador</h1>
+<p>Guía rápida de estudio</p>
+
+</header>
+
+<nav>
+
+<a href="#arquitectura">Arquitectura</a> <a href="#cpu">CPU</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#instrucciones">Instrucciones</a> <a href="#syscall">Syscall</a>
+
+</nav>
+
+<section id="arquitectura">
 
 <div class="card">
-<h2>MIPS</h2>
-<a href="MIPS.pdf">Abrir material</a>
+
+<h2>Arquitectura del Computador</h2>
+
+<p>La arquitectura del computador describe la organización y funcionamiento interno de un sistema de cómputo.</p>
+
+<h3>Componentes principales</h3>
+
+<ul>
+<li>CPU</li>
+<li>Memoria</li>
+<li>Entrada / Salida</li>
+<li>Buses</li>
+</ul>
+
+<h3>Tipos de arquitectura</h3>
+
+<h4>Von Neumann</h4>
+
+<ul>
+<li>Datos e instrucciones en la misma memoria</li>
+<li>Un solo bus</li>
+</ul>
+
+<h4>Harvard</h4>
+
+<ul>
+<li>Memoria de datos separada</li>
+<li>Memoria de instrucciones separada</li>
+</ul>
+
 </div>
 
+</section>
+
+<section id="cpu">
+
 <div class="card">
-<h2>Lenguaje Ensamblador</h2>
-<a href="ensamblador.pdf">Abrir material</a>
+
+<h2>CPU</h2>
+
+<p>La CPU es el componente que ejecuta instrucciones.</p>
+
+<h3>Componentes</h3>
+
+<ul>
+
+<li>Unidad de Control (CU)</li>
+<li>ALU</li>
+<li>Registros</li>
+<li>Caché</li>
+
+</ul>
+
+<h3>Funciones</h3>
+
+<ul>
+
+<li>Leer instrucciones</li>
+<li>Decodificar</li>
+<li>Ejecutar operaciones</li>
+<li>Controlar flujo de datos</li>
+
+</ul>
+
 </div>
+
+</section>
+
+<section id="mips">
+
+<div class="card">
+
+<h2>Arquitectura MIPS</h2>
+
+<p>MIPS significa Microprocessor without Interlocked Pipeline Stages.</p>
+
+<h3>Características</h3>
+
+<ul>
+
+<li>Arquitectura RISC</li>
+<li>32 registros</li>
+<li>Instrucciones de 32 bits</li>
+<li>Pipeline de 5 etapas</li>
+
+</ul>
+
+<h3>Pipeline</h3>
+
+<ol>
+
+<li>IF → Fetch</li>
+<li>ID → Decode</li>
+<li>EX → Execute</li>
+<li>MEM → Memory</li>
+<li>WB → Write Back</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section id="registros">
+
+<div class="card">
+
+<h2>Registros MIPS</h2>
+
+<table>
+
+<tr>
+<th>Registro</th>
+<th>Uso</th>
+</tr>
+
+<tr>
+<td>$zero</td>
+<td>Siempre 0</td>
+</tr>
+
+<tr>
+<td>$v0-$v1</td>
+<td>Valores de retorno</td>
+</tr>
+
+<tr>
+<td>$a0-$a3</td>
+<td>Argumentos</td>
+</tr>
+
+<tr>
+<td>$t0-$t9</td>
+<td>Temporales</td>
+</tr>
+
+<tr>
+<td>$s0-$s7</td>
+<td>Variables guardadas</td>
+</tr>
+
+<tr>
+<td>$sp</td>
+<td>Puntero de pila</td>
+</tr>
+
+<tr>
+<td>$ra</td>
+<td>Dirección de retorno</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="instrucciones">
+
+<div class="card">
+
+<h2>Tipos de instrucciones</h2>
+
+<h3>Formato R</h3>
+
+<p>Operaciones entre registros</p>
+
+<code>add $s1, $s2, $s3</code>
+
+<h3>Formato I</h3>
+
+<p>Registro + inmediato o memoria</p>
+
+<code>addi $s0, $s0, 10</code>
+
+<code>lw $t0, 4($s0)</code>
+
+<code>sw $t1, 8($s0)</code>
+
+<h3>Formato J</h3>
+
+<p>Saltos</p>
+
+<code>j etiqueta</code>
+
+<code>jal funcion</code>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>Instrucciones comunes</h2>
+
+<table>
+
+<tr>
+<th>Instrucción</th>
+<th>Función</th>
+</tr>
+
+<tr>
+<td>add</td>
+<td>Suma</td>
+</tr>
+
+<tr>
+<td>sub</td>
+<td>Resta</td>
+</tr>
+
+<tr>
+<td>lw</td>
+<td>Cargar memoria</td>
+</tr>
+
+<tr>
+<td>sw</td>
+<td>Guardar memoria</td>
+</tr>
+
+<tr>
+<td>and</td>
+<td>AND lógico</td>
+</tr>
+
+<tr>
+<td>or</td>
+<td>OR lógico</td>
+</tr>
+
+<tr>
+<td>slt</td>
+<td>Set if less than</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="syscall">
+
+<div class="card">
+
+<h2>Syscall</h2>
+
+<h3>Imprimir entero</h3>
+
+<code>
+li $v0,1
+</code>
+
+<code>
+move $a0,$t0
+</code>
+
+<code>
+syscall
+</code>
+
+<h3>Leer entero</h3>
+
+<code>
+li $v0,5
+</code>
+
+<code>
+syscall
+</code>
+
+</div>
+
+</section>
 
 </body>
 
