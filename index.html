@@ -23,7 +23,7 @@ text-align:center;
 
 nav{
 background:#020617;
-padding:12px;
+padding:10px;
 position:sticky;
 top:0;
 }
@@ -81,13 +81,13 @@ padding:8px;
 <header>
 
 <h1>Arquitectura del Computador</h1>
-<p>Guía completa de estudio - Arquitectura y Lenguaje Ensamblador</p>
+<p>Guía completa de estudio basada en Arquitectura y Lenguaje Ensamblador</p>
 
 </header>
 
 <nav>
 
-<a href="#arquitectura">Arquitectura</a> <a href="#componentes">Componentes</a> <a href="#cpu">CPU</a> <a href="#arquitecturas">Tipos de Arquitectura</a> <a href="#procesadores">Procesadores</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#ensamblador">Ensamblador</a> <a href="#directivas">Directivas</a> <a href="#direccionamiento">Direccionamiento</a> <a href="#instrucciones">Instrucciones</a> <a href="#ejemplos">Ejemplos</a> <a href="#syscall">Syscall</a>
+<a href="#arquitectura">Arquitectura</a> <a href="#componentes">Componentes</a> <a href="#cpu">CPU</a> <a href="#arquitecturas">Arquitecturas</a> <a href="#procesadores">Procesadores</a> <a href="#mips">MIPS</a> <a href="#pipeline">Pipeline</a> <a href="#registros">Registros</a> <a href="#ensamblador">Ensamblador</a> <a href="#directivas">Directivas</a> <a href="#direccionamiento">Direccionamiento</a> <a href="#instrucciones">Instrucciones</a> <a href="#ejemplos">Ejemplo</a> <a href="#syscall">Syscall</a>
 
 </nav>
 
@@ -98,7 +98,7 @@ padding:8px;
 <h2>Arquitectura del Computador</h2>
 
 <p>
-La arquitectura del computador describe el diseño conceptual y la estructura operativa de un sistema de cómputo.
+La arquitectura del computador se refiere al diseño conceptual y estructura operativa de un sistema de cómputo.
 Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los componentes interactúan para ejecutar programas.
 </p>
 
@@ -110,7 +110,7 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <div class="card">
 
-<h2>Componentes principales</h2>
+<h2>Componentes del sistema</h2>
 
 <ul>
 
@@ -118,9 +118,9 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <li><b>Memoria</b>: almacena datos y programas.</li>
 
-<li><b>Entrada / Salida</b>: permite interacción con dispositivos.</li>
+<li><b>Entrada / Salida</b>: interacción con periféricos.</li>
 
-<li><b>Buses</b>: transportan datos entre componentes.</li>
+<li><b>Buses</b>: líneas de comunicación entre componentes.</li>
 
 </ul>
 
@@ -134,20 +134,21 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <h2>CPU</h2>
 
-<p>La CPU interpreta y ejecuta instrucciones de programas.</p>
+<p>La CPU es el componente encargado de interpretar y ejecutar instrucciones.</p>
 
 <h3>Funciones</h3>
 
 <ul>
 
-<li>Leer instrucciones</li>
+<li>Leer instrucciones desde memoria</li>
 <li>Decodificarlas</li>
-<li>Ejecutar operaciones</li>
-<li>Controlar transferencia de datos</li>
+<li>Ejecutar operaciones usando la ALU</li>
+<li>Gestionar transferencia de datos</li>
+<li>Tomar decisiones y controlar el flujo del programa</li>
 
 </ul>
 
-<h3>Componentes</h3>
+<h3>Componentes internos</h3>
 
 <ul>
 
@@ -181,8 +182,8 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <ul>
 
-<li>Memoria de datos separada</li>
 <li>Memoria de instrucciones separada</li>
+<li>Memoria de datos separada</li>
 
 </ul>
 
@@ -192,6 +193,7 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <li>Conjunto reducido de instrucciones</li>
 <li>Ejecución rápida</li>
+<li>Ejemplos: ARM, MIPS</li>
 
 </ul>
 
@@ -200,25 +202,17 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 <ul>
 
 <li>Conjunto complejo de instrucciones</li>
-<li>Mayor número de operaciones por instrucción</li>
+<li>Ejemplo: Intel x86</li>
 
 </ul>
 
 <h3>EPIC</h3>
 
-<ul>
-
-<li>Ejecución paralela explícita</li>
-
-</ul>
+<p>Ejecución paralela explícita de instrucciones.</p>
 
 <h3>VLIW</h3>
 
-<ul>
-
-<li>Instrucciones largas que ejecutan múltiples operaciones</li>
-
-</ul>
+<p>Una instrucción larga ejecuta múltiples operaciones.</p>
 
 </div>
 
@@ -228,13 +222,13 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <div class="card">
 
-<h2>Tipos de procesadores</h2>
+<h2>Tipos de Procesadores</h2>
 
 <ul>
 
 <li>CPU de uso general</li>
 <li>Microcontroladores</li>
-<li>Procesadores de señales digitales</li>
+<li>Procesadores de señales digitales (DSP)</li>
 <li>GPU</li>
 
 </ul>
@@ -256,20 +250,28 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 <ul>
 
 <li>Arquitectura RISC</li>
-<li>32 registros</li>
-<li>Instrucciones de 32 bits</li>
-<li>Pipeline de 5 etapas</li>
+<li>Instrucciones de longitud fija de 32 bits</li>
+<li>32 registros de propósito general</li>
+<li>Diseño Load/Store</li>
 
 </ul>
 
-<h3>Pipeline</h3>
+</div>
+
+</section>
+
+<section id="pipeline">
+
+<div class="card">
+
+<h2>Pipeline MIPS</h2>
 
 <ol>
 
 <li>Instruction Fetch</li>
 <li>Instruction Decode</li>
 <li>Execute</li>
-<li>Memory</li>
+<li>Memory Access</li>
 <li>Write Back</li>
 
 </ol>
@@ -291,45 +293,16 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 <th>Uso</th>
 </tr>
 
-<tr>
-<td>$zero</td>
-<td>Constante 0</td>
-</tr>
-
-<tr>
-<td>$at</td>
-<td>Uso del ensamblador</td>
-</tr>
-
-<tr>
-<td>$v0-$v1</td>
-<td>Valores de retorno</td>
-</tr>
-
-<tr>
-<td>$a0-$a3</td>
-<td>Argumentos</td>
-</tr>
-
-<tr>
-<td>$t0-$t9</td>
-<td>Temporales</td>
-</tr>
-
-<tr>
-<td>$s0-$s7</td>
-<td>Variables salvadas</td>
-</tr>
-
-<tr>
-<td>$sp</td>
-<td>Puntero de pila</td>
-</tr>
-
-<tr>
-<td>$ra</td>
-<td>Dirección de retorno</td>
-</tr>
+<tr><td>$zero</td><td>Constante 0</td></tr>
+<tr><td>$at</td><td>Reservado para ensamblador</td></tr>
+<tr><td>$v0-$v1</td><td>Valores de retorno</td></tr>
+<tr><td>$a0-$a3</td><td>Argumentos</td></tr>
+<tr><td>$t0-$t9</td><td>Temporales</td></tr>
+<tr><td>$s0-$s7</td><td>Variables guardadas</td></tr>
+<tr><td>$gp</td><td>Puntero global</td></tr>
+<tr><td>$sp</td><td>Puntero de pila</td></tr>
+<tr><td>$fp</td><td>Frame pointer</td></tr>
+<tr><td>$ra</td><td>Dirección de retorno</td></tr>
 
 </table>
 
@@ -343,9 +316,7 @@ Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los
 
 <h2>Lenguaje Ensamblador</h2>
 
-<p>
-Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemotécnicos.
-</p>
+<p>Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemotécnicos.</p>
 
 <h3>Componentes</h3>
 
@@ -365,7 +336,7 @@ Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemoté
 
 <div class="card">
 
-<h2>Directivas</h2>
+<h2>Directivas del Ensamblador</h2>
 
 <ul>
 
@@ -376,6 +347,7 @@ Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemoté
 <li>.float</li>
 <li>.double</li>
 <li>.space</li>
+<li>.align</li>
 
 </ul>
 
@@ -405,29 +377,19 @@ Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemoté
 
 <div class="card">
 
-<h2>Tipos de instrucciones MIPS</h2>
+<h2>Tipos de instrucciones</h2>
 
 <h3>Formato R</h3>
 
-<code>add $s1,$s2,$s3</code>
-
-<code>sub $t1,$t2,$t3</code>
-
-<code>and $s4,$s5,$s6</code>
+<code>add $s1,$s2,$s3</code> <code>sub $t1,$t2,$t3</code> <code>and $s4,$s5,$s6</code> <code>or $t4,$t5,$t6</code> <code>slt $s7,$s0,$t0</code>
 
 <h3>Formato I</h3>
 
-<code>addi $s0,$s0,10</code>
-
-<code>lw $t0,4($s0)</code>
-
-<code>sw $t1,8($s0)</code>
+<code>addi $s0,$s0,10</code> <code>lw $t0,4($s0)</code> <code>sw $t1,8($s0)</code> <code>beq $t0,$t1,etiq</code> <code>bne $s0,$zero,loop</code>
 
 <h3>Formato J</h3>
 
-<code>j etiqueta</code>
-
-<code>jal funcion</code>
+<code>j etiqueta</code> <code>jal funcion</code> <code>jr $ra</code>
 
 </div>
 
@@ -437,35 +399,19 @@ Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemoté
 
 <div class="card">
 
-<h2>Ejemplo de bucle</h2>
+<h2>Ejemplo de bucle while</h2>
 
-<code>
-li $s3,0
-</code>
+<code>li $s3,0</code> <code>li $s4,10</code>
 
-<code>
-li $s4,10
-</code>
+<code>Loop:</code>
 
-<code>
-Loop:
-</code>
+<code>slt $t0,$s3,$s4</code> <code>beq $t0,$zero,End</code>
 
-<code>
-slt $t0,$s3,$s4
-</code>
+<code>addi $s3,$s3,1</code>
 
-<code>
-beq $t0,$zero,End
-</code>
+<code>j Loop</code>
 
-<code>
-addi $s3,$s3,1
-</code>
-
-<code>
-j Loop
-</code>
+<code>End:</code>
 
 </div>
 
@@ -479,22 +425,15 @@ j Loop
 
 <h3>Imprimir entero</h3>
 
-<code>li $v0,1</code>
-
-<code>move $a0,$t0</code>
-
-<code>syscall</code>
+<code>li $v0,1</code> <code>move $a0,$t0</code> <code>syscall</code>
 
 <h3>Leer entero</h3>
 
-<code>li $v0,5</code>
-
-<code>syscall</code>
+<code>li $v0,5</code> <code>syscall</code>
 
 </div>
 
 </section>
 
 </body>
-
 </html>
