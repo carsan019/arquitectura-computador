@@ -36,9 +36,9 @@ font-weight:bold;
 }
 
 section{
-padding:30px;
 max-width:1000px;
 margin:auto;
+padding:30px;
 }
 
 .card{
@@ -54,8 +54,8 @@ color:#38bdf8;
 
 code{
 background:#020617;
-padding:4px;
-border-radius:4px;
+padding:5px;
+border-radius:5px;
 color:#22c55e;
 }
 
@@ -79,13 +79,13 @@ padding:8px;
 <header>
 
 <h1>Arquitectura del Computador</h1>
-<p>Guía rápida de estudio</p>
+<p>Guía completa de estudio</p>
 
 </header>
 
 <nav>
 
-<a href="#arquitectura">Arquitectura</a> <a href="#cpu">CPU</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#instrucciones">Instrucciones</a> <a href="#syscall">Syscall</a>
+<a href="#arquitectura">Arquitectura</a> <a href="#cpu">CPU</a> <a href="#tipos">Arquitecturas</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#ensamblador">Ensamblador</a> <a href="#instrucciones">Instrucciones</a> <a href="#direccionamiento">Direccionamiento</a> <a href="#syscall">Syscall</a>
 
 </nav>
 
@@ -95,31 +95,20 @@ padding:8px;
 
 <h2>Arquitectura del Computador</h2>
 
-<p>La arquitectura del computador describe la organización y funcionamiento interno de un sistema de cómputo.</p>
+<p>
+La arquitectura del computador describe la organización conceptual y funcional de un sistema de cómputo.
+Define cómo interactúan hardware y software para ejecutar programas.
+</p>
 
 <h3>Componentes principales</h3>
 
 <ul>
+
 <li>CPU</li>
 <li>Memoria</li>
-<li>Entrada / Salida</li>
+<li>Dispositivos de Entrada/Salida</li>
 <li>Buses</li>
-</ul>
 
-<h3>Tipos de arquitectura</h3>
-
-<h4>Von Neumann</h4>
-
-<ul>
-<li>Datos e instrucciones en la misma memoria</li>
-<li>Un solo bus</li>
-</ul>
-
-<h4>Harvard</h4>
-
-<ul>
-<li>Memoria de datos separada</li>
-<li>Memoria de instrucciones separada</li>
 </ul>
 
 </div>
@@ -132,16 +121,16 @@ padding:8px;
 
 <h2>CPU</h2>
 
-<p>La CPU es el componente que ejecuta instrucciones.</p>
+<p>La CPU es el cerebro del computador encargado de ejecutar instrucciones.</p>
 
 <h3>Componentes</h3>
 
 <ul>
 
-<li>Unidad de Control (CU)</li>
-<li>ALU</li>
+<li>Unidad de Control</li>
+<li>ALU (Unidad Aritmético Lógica)</li>
 <li>Registros</li>
-<li>Caché</li>
+<li>Memoria Caché</li>
 
 </ul>
 
@@ -149,10 +138,56 @@ padding:8px;
 
 <ul>
 
-<li>Leer instrucciones</li>
-<li>Decodificar</li>
+<li>Leer instrucciones desde memoria</li>
+<li>Decodificar instrucciones</li>
 <li>Ejecutar operaciones</li>
 <li>Controlar flujo de datos</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="tipos">
+
+<div class="card">
+
+<h2>Tipos de Arquitectura</h2>
+
+<h3>Arquitectura Von Neumann</h3>
+
+<ul>
+
+<li>Datos e instrucciones comparten memoria</li>
+<li>Un solo bus</li>
+
+</ul>
+
+<h3>Arquitectura Harvard</h3>
+
+<ul>
+
+<li>Memoria de datos separada</li>
+<li>Memoria de instrucciones separada</li>
+
+</ul>
+
+<h3>RISC</h3>
+
+<ul>
+
+<li>Conjunto reducido de instrucciones</li>
+<li>Mayor velocidad</li>
+
+</ul>
+
+<h3>CISC</h3>
+
+<ul>
+
+<li>Conjunto complejo de instrucciones</li>
+<li>Más operaciones por instrucción</li>
 
 </ul>
 
@@ -164,7 +199,7 @@ padding:8px;
 
 <div class="card">
 
-<h2>Arquitectura MIPS</h2>
+<h2>MIPS</h2>
 
 <p>MIPS significa Microprocessor without Interlocked Pipeline Stages.</p>
 
@@ -183,11 +218,11 @@ padding:8px;
 
 <ol>
 
-<li>IF → Fetch</li>
-<li>ID → Decode</li>
-<li>EX → Execute</li>
-<li>MEM → Memory</li>
-<li>WB → Write Back</li>
+<li>Fetch</li>
+<li>Decode</li>
+<li>Execute</li>
+<li>Memory</li>
+<li>Write Back</li>
 
 </ol>
 
@@ -210,7 +245,7 @@ padding:8px;
 
 <tr>
 <td>$zero</td>
-<td>Siempre 0</td>
+<td>Valor constante 0</td>
 </tr>
 
 <tr>
@@ -249,35 +284,69 @@ padding:8px;
 
 </section>
 
+<section id="ensamblador">
+
+<div class="card">
+
+<h2>Lenguaje Ensamblador</h2>
+
+<p>
+Lenguaje de programación de bajo nivel que utiliza nemotécnicos para representar instrucciones de máquina.
+</p>
+
+<h3>Componentes</h3>
+
+<ul>
+
+<li>Instrucciones</li>
+<li>Operadores</li>
+<li>Etiquetas</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="direccionamiento">
+
+<div class="card">
+
+<h2>Modos de Direccionamiento</h2>
+
+<ul>
+
+<li>Directo → dirección del dato</li>
+<li>Indirecto → dirección de una dirección</li>
+<li>Registro → dato en registro</li>
+
+</ul>
+
+</div>
+
+</section>
+
 <section id="instrucciones">
 
 <div class="card">
 
-<h2>Tipos de instrucciones</h2>
+<h2>Tipos de Instrucciones MIPS</h2>
 
-<h3>Formato R</h3>
+<h3>Tipo R</h3>
 
-<p>Operaciones entre registros</p>
+<code>add $s1,$s2,$s3</code>
 
-<code>add $s1, $s2, $s3</code>
+<h3>Tipo I</h3>
 
-<h3>Formato I</h3>
+<code>addi $s0,$s0,10</code>
 
-<p>Registro + inmediato o memoria</p>
+<code>lw $t0,4($s0)</code>
 
-<code>addi $s0, $s0, 10</code>
+<code>sw $t1,8($s0)</code>
 
-<code>lw $t0, 4($s0)</code>
-
-<code>sw $t1, 8($s0)</code>
-
-<h3>Formato J</h3>
-
-<p>Saltos</p>
+<h3>Tipo J</h3>
 
 <code>j etiqueta</code>
-
-<code>jal funcion</code>
 
 </div>
 
@@ -345,27 +414,17 @@ padding:8px;
 
 <h3>Imprimir entero</h3>
 
-<code>
-li $v0,1
-</code>
+<code>li $v0,1</code>
 
-<code>
-move $a0,$t0
-</code>
+<code>move $a0,$t0</code>
 
-<code>
-syscall
-</code>
+<code>syscall</code>
 
 <h3>Leer entero</h3>
 
-<code>
-li $v0,5
-</code>
+<code>li $v0,5</code>
 
-<code>
-syscall
-</code>
+<code>syscall</code>
 
 </div>
 
