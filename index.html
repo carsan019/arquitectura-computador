@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Guía de Estudio - Arquitectura del Computador</title>
+<title>Guía Completa - Arquitectura del Computador</title>
 
 <style>
 
@@ -17,13 +17,13 @@ margin:0;
 
 header{
 background:#020617;
-padding:20px;
+padding:25px;
 text-align:center;
 }
 
 nav{
 background:#020617;
-padding:10px;
+padding:12px;
 position:sticky;
 top:0;
 }
@@ -36,7 +36,7 @@ font-weight:bold;
 }
 
 section{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:30px;
 }
@@ -44,8 +44,8 @@ padding:30px;
 .card{
 background:#1e293b;
 padding:20px;
-margin-bottom:20px;
 border-radius:10px;
+margin-bottom:25px;
 }
 
 h1,h2,h3{
@@ -57,6 +57,8 @@ background:#020617;
 padding:5px;
 border-radius:5px;
 color:#22c55e;
+display:block;
+margin-top:5px;
 }
 
 table{
@@ -79,13 +81,13 @@ padding:8px;
 <header>
 
 <h1>Arquitectura del Computador</h1>
-<p>Guía completa de estudio</p>
+<p>Guía completa de estudio - Arquitectura y Lenguaje Ensamblador</p>
 
 </header>
 
 <nav>
 
-<a href="#arquitectura">Arquitectura</a> <a href="#cpu">CPU</a> <a href="#tipos">Arquitecturas</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#ensamblador">Ensamblador</a> <a href="#instrucciones">Instrucciones</a> <a href="#direccionamiento">Direccionamiento</a> <a href="#syscall">Syscall</a>
+<a href="#arquitectura">Arquitectura</a> <a href="#componentes">Componentes</a> <a href="#cpu">CPU</a> <a href="#arquitecturas">Tipos de Arquitectura</a> <a href="#procesadores">Procesadores</a> <a href="#mips">MIPS</a> <a href="#registros">Registros</a> <a href="#ensamblador">Ensamblador</a> <a href="#directivas">Directivas</a> <a href="#direccionamiento">Direccionamiento</a> <a href="#instrucciones">Instrucciones</a> <a href="#ejemplos">Ejemplos</a> <a href="#syscall">Syscall</a>
 
 </nav>
 
@@ -96,18 +98,29 @@ padding:8px;
 <h2>Arquitectura del Computador</h2>
 
 <p>
-La arquitectura del computador describe la organización conceptual y funcional de un sistema de cómputo.
-Define cómo interactúan hardware y software para ejecutar programas.
+La arquitectura del computador describe el diseño conceptual y la estructura operativa de un sistema de cómputo.
+Incluye el conjunto de instrucciones, diseño del hardware y la forma en que los componentes interactúan para ejecutar programas.
 </p>
 
-<h3>Componentes principales</h3>
+</div>
+
+</section>
+
+<section id="componentes">
+
+<div class="card">
+
+<h2>Componentes principales</h2>
 
 <ul>
 
-<li>CPU</li>
-<li>Memoria</li>
-<li>Dispositivos de Entrada/Salida</li>
-<li>Buses</li>
+<li><b>CPU</b>: ejecuta instrucciones.</li>
+
+<li><b>Memoria</b>: almacena datos y programas.</li>
+
+<li><b>Entrada / Salida</b>: permite interacción con dispositivos.</li>
+
+<li><b>Buses</b>: transportan datos entre componentes.</li>
 
 </ul>
 
@@ -121,27 +134,27 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 <h2>CPU</h2>
 
-<p>La CPU es el cerebro del computador encargado de ejecutar instrucciones.</p>
+<p>La CPU interpreta y ejecuta instrucciones de programas.</p>
+
+<h3>Funciones</h3>
+
+<ul>
+
+<li>Leer instrucciones</li>
+<li>Decodificarlas</li>
+<li>Ejecutar operaciones</li>
+<li>Controlar transferencia de datos</li>
+
+</ul>
 
 <h3>Componentes</h3>
 
 <ul>
 
 <li>Unidad de Control</li>
-<li>ALU (Unidad Aritmético Lógica)</li>
+<li>ALU</li>
 <li>Registros</li>
-<li>Memoria Caché</li>
-
-</ul>
-
-<h3>Funciones</h3>
-
-<ul>
-
-<li>Leer instrucciones desde memoria</li>
-<li>Decodificar instrucciones</li>
-<li>Ejecutar operaciones</li>
-<li>Controlar flujo de datos</li>
+<li>Caché</li>
 
 </ul>
 
@@ -149,22 +162,22 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 </section>
 
-<section id="tipos">
+<section id="arquitecturas">
 
 <div class="card">
 
 <h2>Tipos de Arquitectura</h2>
 
-<h3>Arquitectura Von Neumann</h3>
+<h3>Von Neumann</h3>
 
 <ul>
 
-<li>Datos e instrucciones comparten memoria</li>
-<li>Un solo bus</li>
+<li>Una sola memoria para datos e instrucciones</li>
+<li>CPU, memoria e I/O conectados por buses</li>
 
 </ul>
 
-<h3>Arquitectura Harvard</h3>
+<h3>Harvard</h3>
 
 <ul>
 
@@ -178,7 +191,7 @@ Define cómo interactúan hardware y software para ejecutar programas.
 <ul>
 
 <li>Conjunto reducido de instrucciones</li>
-<li>Mayor velocidad</li>
+<li>Ejecución rápida</li>
 
 </ul>
 
@@ -187,7 +200,42 @@ Define cómo interactúan hardware y software para ejecutar programas.
 <ul>
 
 <li>Conjunto complejo de instrucciones</li>
-<li>Más operaciones por instrucción</li>
+<li>Mayor número de operaciones por instrucción</li>
+
+</ul>
+
+<h3>EPIC</h3>
+
+<ul>
+
+<li>Ejecución paralela explícita</li>
+
+</ul>
+
+<h3>VLIW</h3>
+
+<ul>
+
+<li>Instrucciones largas que ejecutan múltiples operaciones</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="procesadores">
+
+<div class="card">
+
+<h2>Tipos de procesadores</h2>
+
+<ul>
+
+<li>CPU de uso general</li>
+<li>Microcontroladores</li>
+<li>Procesadores de señales digitales</li>
+<li>GPU</li>
 
 </ul>
 
@@ -199,7 +247,7 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 <div class="card">
 
-<h2>MIPS</h2>
+<h2>Arquitectura MIPS</h2>
 
 <p>MIPS significa Microprocessor without Interlocked Pipeline Stages.</p>
 
@@ -218,8 +266,8 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 <ol>
 
-<li>Fetch</li>
-<li>Decode</li>
+<li>Instruction Fetch</li>
+<li>Instruction Decode</li>
 <li>Execute</li>
 <li>Memory</li>
 <li>Write Back</li>
@@ -245,7 +293,12 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 <tr>
 <td>$zero</td>
-<td>Valor constante 0</td>
+<td>Constante 0</td>
+</tr>
+
+<tr>
+<td>$at</td>
+<td>Uso del ensamblador</td>
 </tr>
 
 <tr>
@@ -265,7 +318,7 @@ Define cómo interactúan hardware y software para ejecutar programas.
 
 <tr>
 <td>$s0-$s7</td>
-<td>Variables guardadas</td>
+<td>Variables salvadas</td>
 </tr>
 
 <tr>
@@ -291,7 +344,7 @@ Define cómo interactúan hardware y software para ejecutar programas.
 <h2>Lenguaje Ensamblador</h2>
 
 <p>
-Lenguaje de programación de bajo nivel que utiliza nemotécnicos para representar instrucciones de máquina.
+Lenguaje de bajo nivel que representa instrucciones de máquina mediante nemotécnicos.
 </p>
 
 <h3>Componentes</h3>
@@ -308,17 +361,39 @@ Lenguaje de programación de bajo nivel que utiliza nemotécnicos para represent
 
 </section>
 
+<section id="directivas">
+
+<div class="card">
+
+<h2>Directivas</h2>
+
+<ul>
+
+<li>.data</li>
+<li>.text</li>
+<li>.byte</li>
+<li>.word</li>
+<li>.float</li>
+<li>.double</li>
+<li>.space</li>
+
+</ul>
+
+</div>
+
+</section>
+
 <section id="direccionamiento">
 
 <div class="card">
 
-<h2>Modos de Direccionamiento</h2>
+<h2>Modos de direccionamiento</h2>
 
 <ul>
 
-<li>Directo → dirección del dato</li>
-<li>Indirecto → dirección de una dirección</li>
-<li>Registro → dato en registro</li>
+<li>Directo</li>
+<li>Indirecto</li>
+<li>Registro</li>
 
 </ul>
 
@@ -330,13 +405,17 @@ Lenguaje de programación de bajo nivel que utiliza nemotécnicos para represent
 
 <div class="card">
 
-<h2>Tipos de Instrucciones MIPS</h2>
+<h2>Tipos de instrucciones MIPS</h2>
 
-<h3>Tipo R</h3>
+<h3>Formato R</h3>
 
 <code>add $s1,$s2,$s3</code>
 
-<h3>Tipo I</h3>
+<code>sub $t1,$t2,$t3</code>
+
+<code>and $s4,$s5,$s6</code>
+
+<h3>Formato I</h3>
 
 <code>addi $s0,$s0,10</code>
 
@@ -344,63 +423,49 @@ Lenguaje de programación de bajo nivel que utiliza nemotécnicos para represent
 
 <code>sw $t1,8($s0)</code>
 
-<h3>Tipo J</h3>
+<h3>Formato J</h3>
 
 <code>j etiqueta</code>
+
+<code>jal funcion</code>
 
 </div>
 
 </section>
 
-<section>
+<section id="ejemplos">
 
 <div class="card">
 
-<h2>Instrucciones comunes</h2>
+<h2>Ejemplo de bucle</h2>
 
-<table>
+<code>
+li $s3,0
+</code>
 
-<tr>
-<th>Instrucción</th>
-<th>Función</th>
-</tr>
+<code>
+li $s4,10
+</code>
 
-<tr>
-<td>add</td>
-<td>Suma</td>
-</tr>
+<code>
+Loop:
+</code>
 
-<tr>
-<td>sub</td>
-<td>Resta</td>
-</tr>
+<code>
+slt $t0,$s3,$s4
+</code>
 
-<tr>
-<td>lw</td>
-<td>Cargar memoria</td>
-</tr>
+<code>
+beq $t0,$zero,End
+</code>
 
-<tr>
-<td>sw</td>
-<td>Guardar memoria</td>
-</tr>
+<code>
+addi $s3,$s3,1
+</code>
 
-<tr>
-<td>and</td>
-<td>AND lógico</td>
-</tr>
-
-<tr>
-<td>or</td>
-<td>OR lógico</td>
-</tr>
-
-<tr>
-<td>slt</td>
-<td>Set if less than</td>
-</tr>
-
-</table>
+<code>
+j Loop
+</code>
 
 </div>
 
